@@ -7,10 +7,19 @@ export function add(numbersStr) {
   const numbers = numbersStr.replace(/\n/g, d).split(d);
 
   let sum = 0;
+  let negNums = [];
   for (let num of numbers) {
     if (/\d/.test(num)) {
+      if (num < 0) {
+        negNums.push(num);
+        continue;
+      }
       sum += parseInt(num);
     }
+  }
+
+  if (negNums.length > 0) {
+    throw new Error(`negatives not allowed - ${negNums.join()}`);
   }
 
   return sum;

@@ -32,3 +32,7 @@ test("Support different delimiters", () => {
   expect(add("//;\n1;2")).toBe(3);
   expect(add("//;;;\n1;;;2")).toBe(3);
 });
+
+test("Calling Add with a negative number will throw an exception", () => {
+  expect(() => add("1,-2,-3")).toThrow("negatives not allowed - -2,-3");
+});
