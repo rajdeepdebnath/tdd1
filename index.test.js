@@ -30,7 +30,6 @@ test("adds with new lines between numbers", () => {
 
 test("Support different delimiters", () => {
   expect(add("//;\n1;2")).toBe(3);
-  expect(add("//;;;\n1;;;2")).toBe(3);
 });
 
 test("Calling Add with a negative number will throw an exception", () => {
@@ -39,4 +38,8 @@ test("Calling Add with a negative number will throw an exception", () => {
 
 test("Numbers bigger than 1000 should be ignored", () => {
   expect(add("1, 1001")).toBe(1);
+});
+
+test("Delimiters can be of any length", () => {
+  expect(add("//[;;;]\n1;;;2")).toBe(3);
 });
