@@ -10,7 +10,19 @@ export function add(numbersStr) {
     d = str[2];
   }
 
-  const numbers = numbersStr.replace(/\n/g, d).split(d);
+  let numbers = [];
+  if (d.includes("][")) {
+    let del = d.replace(/\]\[/g, "").split("");
+    let s = numbersStr.replace(str[0], "");
+    del.forEach((i) => {
+      let r = new RegExp(`\${i}`, "g");
+      s = s.replace(r, "");
+    });
+
+    numbers = s.split("");
+  } else {
+    numbers = numbersStr.replace(/\n/g, d).split(d);
+  }
 
   let sum = 0;
   let negNums = [];
