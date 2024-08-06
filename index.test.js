@@ -27,3 +27,8 @@ test("returns 1 for argument with invalid string i.e. '1, null'", () => {
 test("adds with new lines between numbers", () => {
   expect(add("1\n2,3")).toBe(6);
 });
+
+test("Support different delimiters", () => {
+  expect(add("//;\n1;2")).toBe(3);
+  expect(add("//;;;\n1;;;2")).toBe(3);
+});
