@@ -36,3 +36,7 @@ test("Support different delimiters", () => {
 test("Calling Add with a negative number will throw an exception", () => {
   expect(() => add("1,-2,-3")).toThrow("negatives not allowed - -2,-3");
 });
+
+test("Numbers bigger than 1000 should be ignored", () => {
+  expect(add("1, 1001")).toBe(1);
+});

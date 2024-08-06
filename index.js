@@ -14,6 +14,9 @@ export function add(numbersStr) {
         negNums.push(num);
         continue;
       }
+      if (num > 1000) {
+        continue;
+      }
       sum += parseInt(num);
     }
   }
